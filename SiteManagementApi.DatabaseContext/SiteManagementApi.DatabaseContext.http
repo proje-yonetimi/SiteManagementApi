@@ -1,0 +1,6 @@
+@SiteManagementApi.DatabaseContext_HostAddress = http://localhost:5239
+
+GET {{SiteManagementApi.DatabaseContext_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
