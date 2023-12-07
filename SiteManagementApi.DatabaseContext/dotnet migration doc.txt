@@ -1,0 +1,6 @@
+.net migration
+
+1. appsettings.json da connection string düzenlencek. ardından program.cs altında ilgili context ile eşleştirilecek. (oluşturmak istenilen her db için yeni bir conString eklenmeli. ayrı ayrı yapılabilir herbiri)
+2. entity ve contextler oluşacak
+3. ilk oluşturmada add-migration Initial_Migration -context "Context_Adi"
+4. update-database -context "Context_Adi" komutu ile SQL server güncelleniyor. eklenmiş olan migrationlar aktarılıyor.
