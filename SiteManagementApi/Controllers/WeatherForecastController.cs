@@ -1,5 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using SiteManagementApi.DatabaseContext.Context;
+using SiteManagementApi.DatabaseContext.Entities;
+using SiteManagementApi.Operation.Classes;
 
 namespace SiteManagementApi.Controllers
 {
@@ -7,28 +12,26 @@ namespace SiteManagementApi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public List<User> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var userInfo = UserInfo.GetUserInfo();
+            
+            return userInfo;
         }
+        //[HttpGet(Name = "GetUser")]
+        //public List<User> GetUser()
+        //{
+        //    List<User> tuser;
+        //    SpCall sp = new SpCall("dbo.GetUserDetail");
+        //    sp.SetInt("@UserId", 1);
+
+        //    SSOContext sContext = new SSOContext();
+        //    using (sContext)
+        //    {
+        //        tuser = sContext.Users.FromSqlRaw(sp.ToString()).ToList();
+        //    }
+        //    return tuser;
+        //}
     }
 }

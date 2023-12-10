@@ -602,11 +602,11 @@ namespace SiteManagementApi.Operation.Classes
                             sb.AppendFormat("\n DECLARE {0} {1} = {2} ",
                                 item.ParameterName,
                                 item.SqlDbType.ToString(), item.Value);
-                            break
+                            break;
                     }
                 }
             }
-            return sb.ToString() + "\n\n -- EXEC \n\t" + StoredProcedureName + "\n\t\t--" +
+            return sb.ToString() + " EXEC \n\t" + StoredProcedureName + "\n\t\t" +
                 string.Join(", ", args.ToArray());
         }
     }
