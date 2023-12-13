@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using SiteManagementApi.Operation.Interfaces;
+using SiteManagementApi.Business.Interfaces;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;

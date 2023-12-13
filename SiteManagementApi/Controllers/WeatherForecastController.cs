@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using SiteManagementApi.DatabaseContext.Context;
-using SiteManagementApi.DatabaseContext.Entities;
+using SiteManagementApi.Entities.Entities;
 using SiteManagementApi.Operation.Classes;
 
 namespace SiteManagementApi.Controllers

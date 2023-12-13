@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SiteManagementApi.Operation.Interfaces
+namespace SiteManagementApi.Business.Interfaces
 {
     public interface ISpCall
     {

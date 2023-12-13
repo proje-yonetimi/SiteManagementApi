@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SiteManagementApi.DatabaseContext.Entities
+namespace SiteManagementApi.Entities.Entities
 {
     public class MenuItem
     {

@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteManagementApi", "SiteManagementApi\SiteManagementApi.csproj", "{4F3F7DF5-17AD-4590-A9DF-A2502B4168F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteManagementApi", "SiteManagementApi\SiteManagementApi.csproj", "{4F3F7DF5-17AD-4590-A9DF-A2502B4168F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{2E683B8F-4D42-46E1-A298-DBD2E2929F32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteManagementApi.Data", "SiteManagementApi.DatabaseContext\SiteManagementApi.Data.csproj", "{453D89F5-0BA4-4F4A-B66A-02831360BACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteManagementApi.Data", "SiteManagementApi.DatabaseContext\SiteManagementApi.Data.csproj", "{453D89F5-0BA4-4F4A-B66A-02831360BACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteManagementApi.Operation", "SiteManagementApi.Operation\SiteManagementApi.Operation.csproj", "{276C46FE-C067-4C3F-93CC-1DC458312DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteManagementApi.Operation", "SiteManagementApi.Operation\SiteManagementApi.Operation.csproj", "{276C46FE-C067-4C3F-93CC-1DC458312DCF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SiteManagementApi.Entities", "SiteManagementApi.Entities\SiteManagementApi.Entities.csproj", "{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteManagementApi.Business", "SiteManagementApi.Business\SiteManagementApi.Business.csproj", "{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{276C46FE-C067-4C3F-93CC-1DC458312DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{276C46FE-C067-4C3F-93CC-1DC458312DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{276C46FE-C067-4C3F-93CC-1DC458312DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{453D89F5-0BA4-4F4A-B66A-02831360BACA} = {2E683B8F-4D42-46E1-A298-DBD2E2929F32}
 		{276C46FE-C067-4C3F-93CC-1DC458312DCF} = {2E683B8F-4D42-46E1-A298-DBD2E2929F32}
+		{C3A3CCCA-AC11-46CD-9DB3-DC9EC1CD788E} = {2E683B8F-4D42-46E1-A298-DBD2E2929F32}
+		{C0A5CEAB-FDB0-4BCF-8515-8A55AD3699ED} = {2E683B8F-4D42-46E1-A298-DBD2E2929F32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4494F512-2B41-4091-B37C-7FA274479D96}

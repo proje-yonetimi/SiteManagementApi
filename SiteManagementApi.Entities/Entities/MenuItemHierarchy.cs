@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SiteManagementApi.Entities.Entities;
 
-namespace SiteManagementApi.DatabaseContext.Entities
+namespace SiteManagementApi.Entities.Entities
 {
     public class MenuItemHierarchy
     {
