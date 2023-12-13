@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,11 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\SiteManagementApi.Business\SiteManagementApi.Business.csproj" />
     <ProjectReference Include="..\SiteManagementApi.DatabaseContext\SiteManagementApi.Data.csproj" />
+    <ProjectReference Include="..\SiteManagementApi.Entities\SiteManagementApi.Entities.csproj" />
     <ProjectReference Include="..\SiteManagementApi.Operation\SiteManagementApi.Operation.csproj" />
   </ItemGroup>
 

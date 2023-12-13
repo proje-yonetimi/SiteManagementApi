@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SiteManagementApi.DatabaseContext.Entities;
+using SiteManagementApi.Entities.Entities;
 
 namespace SiteManagementApi.DatabaseContext.Context
 {
@@ -15,7 +15,8 @@ namespace SiteManagementApi.DatabaseContext.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-7I14ODO; Initial Catalog=SSOUserDB;User Id=mensar;Password=123;TrustServerCertificate=True;");
+            IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SSOUserDB"));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.DatabaseContext.Context;
-using SiteManagementApi.DatabaseContext.Entities;
+using SiteManagementApi.Entities.Entities;
 
 namespace SiteManagementApi.Operation.Classes
 {

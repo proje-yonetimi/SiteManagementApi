@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SiteManagementApi.DatabaseContext.Entities;
+using SiteManagementApi.Entities.Entities;
 using SiteManagementApi.Operation.Classes;
 
 namespace SiteManagementApi.Controllers
