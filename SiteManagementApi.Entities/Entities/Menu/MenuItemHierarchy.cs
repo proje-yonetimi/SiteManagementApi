@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SiteManagementApi.Entities.Entities;
 
-namespace SiteManagementApi.Entities.Entities
+namespace SiteManagementApi.Entities.Entities.Menu
 {
     public class MenuItemHierarchy
     {
@@ -10,8 +9,6 @@ namespace SiteManagementApi.Entities.Entities
         public int ItemId { get; set; }
         public int ParentId { get; set; }
         public int ItemOrder { get; set; }
-
-        public MenuItem MenuItem { get; set; }
 
     }
     public class MenuItemHierEntityConfiguration : IEntityTypeConfiguration<MenuItemHierarchy>
@@ -22,8 +19,6 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.ItemId).HasColumnType("integer");
             builder.Property(x => x.ParentId).HasColumnType("integer");
             builder.Property(x => x.ItemOrder).HasColumnType("integer");
-
-            builder.HasOne(x => x.MenuItem).WithOne(x => x.MenuItemHierarchy).HasForeignKey<MenuItem>(x => x.ItemId);
         }
     }
 }

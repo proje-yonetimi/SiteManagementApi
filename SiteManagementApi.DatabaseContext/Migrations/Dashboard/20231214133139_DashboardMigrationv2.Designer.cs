@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SiteManagementApi.Data.Context;
 
@@ -11,9 +12,11 @@ using SiteManagementApi.Data.Context;
 namespace SiteManagementApi.Data.Migrations.Dashboard
 {
     [DbContext(typeof(DashboardContext))]
-    partial class DashboardContextModelSnapshot : ModelSnapshot
+    [Migration("20231214133139_DashboardMigrationv2")]
+    partial class DashboardMigrationv2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,9 +276,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<string>("BirthPlace")
                         .HasColumnType("varchar(30)");
 
-                    b.Property<string>("BloodType")
-                        .HasColumnType("varchar(10)");
-
                     b.Property<string>("FatherName")
                         .HasColumnType("varchar(30)");
 
@@ -324,9 +324,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<Guid>("ApartmentId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BankPaymentCode")
                         .HasColumnType("varchar(100)");
@@ -397,218 +394,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.ToTable("PersonVehicles");
                 });
 
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.Apartment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<Guid>("ApartmentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("ApartmentType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Aspect")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Block")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("CreatedUserName")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("DoorNumber")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<decimal>("Dues")
-                        .HasColumnType("decimal(15,2)");
-
-                    b.Property<int>("FloorNumber")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Gross")
-                        .HasColumnType("decimal(15,2)");
-
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("LandShare")
-                        .HasColumnType("decimal(15,2)");
-
-                    b.Property<decimal>("Net")
-                        .HasColumnType("decimal(15,2)");
-
-                    b.Property<string>("ParkingSpaceNumber")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("RoomCount")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<Guid>("SiteId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Statu")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("UpdatedUserName")
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Apartments");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.Employee", b =>
-                {
-                    b.Property<int>("EmployeeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"));
-
-                    b.Property<string>("Company")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("varchar(2000)");
-
-                    b.Property<string>("MealCard")
-                        .HasColumnType("varchar(30)");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Position")
-                        .HasColumnType("varchar(30)");
-
-                    b.HasKey("EmployeeId");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.EmployeeBankInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccountNumber")
-                        .HasColumnType("varchar(20)");
-
-                    b.Property<string>("Bank")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("IBAN")
-                        .HasColumnType("varchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EmployeesBankInfo");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.JobToDo", b =>
-                {
-                    b.Property<int>("JobId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("varchar(1000)");
-
-                    b.Property<bool>("EmailAlert")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("JobTitle")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("PushAlert")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Renew")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RenewalEndDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<bool>("SmsAlert")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("JobId");
-
-                    b.ToTable("JobToDo");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.Meeting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Attachment")
-                        .HasColumnType("varchar(200)");
-
-                    b.Property<int>("AttendenceId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Content")
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<DateTime>("MeetingDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<string>("Summary")
-                        .HasColumnType("varchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Meeting");
-                });
-
             modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.Site", b =>
                 {
                     b.Property<int>("Id")
@@ -620,15 +405,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("CreatedUserName")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<bool?>("IsActive")
-                        .HasColumnType("bit");
-
                     b.Property<int>("ManagerId")
                         .HasColumnType("int");
 
@@ -637,12 +413,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
 
                     b.Property<Guid>("SiteId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<string>("UpdatedUserName")
-                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 

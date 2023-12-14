@@ -5,7 +5,7 @@ namespace SiteManagementApi.Entities.Entities
 {
     public class PersonAddress
     {
-        public Guid PersonAddressId { get; set; }
+        public int Id { get; set; }
         public Guid AddressId { get; set; }
         // Ülke kodu
         public string CountryCode { get; set; }
@@ -32,7 +32,7 @@ namespace SiteManagementApi.Entities.Entities
     {
         public void Configure(EntityTypeBuilder<PersonAddress> builder)
         {
-            builder.Property(x => x.PersonAddressId).HasColumnType("uniqueidentifier");
+            builder.HasKey(x => x.Id);
             builder.Property(x => x.AddressId).HasColumnType("uniqueidentifier");
             builder.Property(x => x.CountryCode).HasColumnType("varchar(10)");
             builder.Property(x => x.CityCode).HasColumnType("varchar(10)");

@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.Entities.Entities;
+using SiteManagementApi.Entities.Entities.Menu;
+using SiteManagementApi.Entities.Entities.Persons;
+using SiteManagementApi.Entities.Entities.Site;
 
 namespace SiteManagementApi.Data.Context
 {
@@ -14,6 +17,15 @@ namespace SiteManagementApi.Data.Context
         public DbSet<PersonCommunication> PersonCommunications { get; set; }
         public DbSet<PersonAddress> PersonAddresses { get; set; }
         public DbSet<PersonIdentityInformation> PersonIdentityInformations { get; set; }
+        public DbSet<PersonVehicle> PersonVehicles { get; set; }
+        public DbSet<PersonApartment> PersonApartments { get; set; }
+        public DbSet<Site> Sites { get; set; }
+        public DbSet<Apartment> Apartments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeBankInfo> EmployeesBankInfo { get; set; }
+        public DbSet<JobToDo> JobToDo { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +36,14 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new PersonCommunicationEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonAddressEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonIdentityInformationEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonVehicleEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonApartmentEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SiteEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ApartmentEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeBankInfoEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new JobToDoEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new MeetingEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SiteManagementApi.Entities.Entities
+namespace SiteManagementApi.Entities.Entities.Menu
 {
     public class MenuItem
     {
@@ -14,7 +14,6 @@ namespace SiteManagementApi.Entities.Entities
         public string? LastUpdatedUserName { get; set; }
         public DateTime? LastUpdatedDate { get; set; }
         public bool? IsActive { get; set; }
-        public MenuItemHierarchy MenuItemHierarchy { get; set; }
 
     }
     public class MenuItemEntityConfiguration : IEntityTypeConfiguration<MenuItem>
@@ -30,8 +29,6 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(p => p.LastUpdatedUserName).HasColumnType("varchar(50)");
             builder.Property(p => p.LastUpdatedDate).HasColumnType("datetime");
             builder.Property(p => p.IsActive).HasColumnType("bit");
-
-            builder.HasOne(p => p.MenuItemHierarchy).WithOne(p=>p.MenuItem).HasForeignKey<MenuItemHierarchy>(p => p.ItemId);
         }
     }
 }
