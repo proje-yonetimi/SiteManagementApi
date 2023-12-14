@@ -7,6 +7,8 @@ namespace SiteManagementApi.Entities.Entities
     {
         // PK id
         public int PersonId { get; set; }
+        // kişi tipi (kiracı/ev sahibi/ yönetici/ personel)
+        public int PersonType { get; set; }
         // Kişi adı
         public string? FirstName { get; set; }
         // Kişi soyadı
@@ -35,6 +37,7 @@ namespace SiteManagementApi.Entities.Entities
         public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.HasKey(x => x.PersonId);
+            builder.Property(x => x.PersonType).HasColumnType("int");
             builder.Property(x => x.FirstName).HasColumnType("varchar(30)");
             builder.Property(x => x.LastName).HasColumnType("varchar(30)");
             builder.Property(x => x.FullName).HasColumnType("varchar(60)");

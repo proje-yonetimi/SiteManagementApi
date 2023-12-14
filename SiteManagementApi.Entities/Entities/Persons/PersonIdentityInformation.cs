@@ -17,6 +17,8 @@ namespace SiteManagementApi.Entities.Entities
         public long? TaxNumber { get; set; }
         // Uyruk bilgisi. cor.Parameter tablosundan çekilir.
         public string? Nationality { get; set; }
+        // Kan grubu
+        public string? BloodType { get; set; }
         // Kimlik seri no
         public string? SerialNumber { get; set; }
         // Kimlik sıra no
@@ -41,6 +43,7 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.PassportNumber).HasColumnType("bigint");
             builder.Property(x => x.TaxNumber).HasColumnType("bigint");
             builder.Property(x => x.Nationality).HasColumnType("varchar(10)");
+            builder.Property(e => e.BloodType).HasColumnType("varchar(10)");
             builder.Property(x => x.SerialNumber).HasColumnType("varchar(30)");
             builder.Property(x => x.OrderNumber).HasColumnType("varchar(30)");
             builder.Property(x => x.FatherName).HasColumnType("varchar(30)");
