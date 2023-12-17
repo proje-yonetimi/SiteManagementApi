@@ -8,9 +8,11 @@ namespace SiteManagementApi.Entities.Entities.Site
     {
         public int Id { get; set; }
         // Site id. siteler tablosunda hangi sitenin dairesi olduğu bilgisi için.
-        public Guid SiteId { get; set; }
+        public Guid? SiteId { get; set; }
         // Daire id
-        public Guid ApartmentId { get; set; }
+        public Guid? ApartmentId { get; set; }
+        // Adres id
+        public Guid? AddressId { get; set; }
         // Daire tipi (daire/villa)
         public int ApartmentType { get; set; }
         // Blok bina no

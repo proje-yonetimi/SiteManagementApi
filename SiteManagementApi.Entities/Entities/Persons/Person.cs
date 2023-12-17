@@ -8,7 +8,7 @@ namespace SiteManagementApi.Entities.Entities
         // PK id
         public int PersonId { get; set; }
         // kişi tipi (kiracı/ev sahibi/ yönetici/ personel)
-        public int PersonType { get; set; }
+        public int? PersonType { get; set; }
         // Kişi adı
         public string? FirstName { get; set; }
         // Kişi soyadı

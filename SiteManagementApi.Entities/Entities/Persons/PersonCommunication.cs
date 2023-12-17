@@ -5,8 +5,8 @@ namespace SiteManagementApi.Entities.Entities
 {
     public class PersonCommunication
     {
-        public Guid PersonCommunicationId { get; set; }
-        public Guid CommunicationId { get; set; }
+        public Guid? PersonCommunicationId { get; set; }
+        public Guid? CommunicationId { get; set; }
         // İletişim tipi (email/gsm/evtel/iştel vs.)
         public int? CommunicationType { get; set; }
         // İletişim değeri
@@ -31,7 +31,7 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.PersonCommunicationId).HasColumnType("uniqueidentifier");
             builder.Property(x => x.CommunicationId).HasColumnType("uniqueidentifier");
             builder.Property(x => x.CommunicationType).HasColumnType("int");
-            builder.Property(x => x.Communication).HasColumnType("varchar(50)");
+            builder.Property(x => x.Communication).HasColumnType("varchar(100)");
             builder.Property(x => x.IsPrimary).HasColumnType("bit");
             builder.Property(x => x.IsActive).HasColumnType("bit");
             builder.Property(x => x.CreatedUserName).HasColumnType("varchar(50)");

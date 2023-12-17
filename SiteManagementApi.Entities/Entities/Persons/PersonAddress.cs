@@ -6,7 +6,7 @@ namespace SiteManagementApi.Entities.Entities
     public class PersonAddress
     {
         public int Id { get; set; }
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
         // Ülke kodu
         public string CountryCode { get; set; }
         // Şehir kodu
