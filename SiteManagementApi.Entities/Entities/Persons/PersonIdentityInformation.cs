@@ -8,7 +8,7 @@ namespace SiteManagementApi.Entities.Entities
         // PK
         public int Id { get; set; }
         // Kişi id. Person tablosu ile bağlanır
-        public Guid IdentityInformationId { get; set; }
+        public Guid? IdentityInformationId { get; set; }
         // Kişi tckn
         public long? IdentityNumber { get; set; }
         //Pasaport no

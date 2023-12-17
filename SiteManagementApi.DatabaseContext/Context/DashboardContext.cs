@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.Entities.Entities;
+using SiteManagementApi.Entities.Entities.Core;
 using SiteManagementApi.Entities.Entities.Menu;
 using SiteManagementApi.Entities.Entities.Persons;
 using SiteManagementApi.Entities.Entities.Site;
@@ -25,6 +26,9 @@ namespace SiteManagementApi.Data.Context
         public DbSet<EmployeeBankInfo> EmployeesBankInfo { get; set; }
         public DbSet<JobToDo> JobToDo { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<WaitingApprovePerson> WaitingApprove { get; set; }
+        public DbSet<Parameter> Parameters_Tbl { get; set; }
+        public DbSet<LogError> LogErrors { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,6 +48,9 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new EmployeeBankInfoEntityConfiguration());
             modelBuilder.ApplyConfiguration(new JobToDoEntityConfiguration());
             modelBuilder.ApplyConfiguration(new MeetingEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new WaitingApproveEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ParameterEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new LogErrorEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -8,7 +8,7 @@ namespace SiteManagementApi.Entities.Entities.Persons
         public int Id { get; set; }
         public int? PersonId { get; set; }
         // Apartman id
-        public Guid ApartmentId { get; set; }
+        public Guid? ApartmentId { get; set; }
         // kat maliki/kiracı
         public int? Ownership { get; set; }
         // giriş tarihi
