@@ -15,13 +15,13 @@ namespace SiteManagementApi.Entities.Entities.Site
         // Toplantı içeriği
         public string? Content { get; set; }
         // Durum
-        public int Status { get; set; }
+        public int? Status { get; set; }
         // Toplantı tarihi
-        public DateTime MeetingDate { get; set; }
+        public DateTime? MeetingDate { get; set; }
         // Ek dosya url
         public string? Attachment { get; set; }
         // Katılım sağlayacak olan liste
-        public int AttendenceId { get; set; }
+        public int? AttendenceId { get; set; }
     }
     public class MeetingEntityConfiguration : IEntityTypeConfiguration<Meeting>
     {
@@ -36,6 +36,7 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(e => e.MeetingDate).HasColumnType("datetime");
             builder.Property(e => e.Attachment).HasColumnType("varchar(200)");
             builder.Property(e => e.AttendenceId).HasColumnType("int");
+            builder.HasIndex(e => e.AttendenceId);
         }
     }
 }

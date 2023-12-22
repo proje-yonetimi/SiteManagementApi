@@ -22,7 +22,7 @@ namespace SiteManagementApi.Entities.Entities
         // Kişi adres id'si. Adres tablosunda AddressId ile eşlenir
         public Guid? AddressId { get; set; }
         // Aktif mi?
-        public bool? IsActive { get; set; }
+        public int? IsActive { get; set; }
         // Oluşturan kullanıcı adı
         public string? CreatedUserName { get; set; }
         // Oluşturulan tarih
@@ -44,7 +44,7 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.IdentityInformationId).HasColumnType("uniqueidentifier");
             builder.Property(x => x.CommunicationId).HasColumnType("uniqueidentifier");
             builder.Property(x => x.AddressId).HasColumnType("uniqueidentifier");
-            builder.Property(x => x.IsActive).HasColumnType("bit");
+            builder.Property(x => x.IsActive).HasColumnType("int");
             builder.Property(x => x.CreatedUserName).HasColumnType("varchar(50)");
             builder.Property(x => x.CreatedDate).HasColumnType("datetime");
             builder.Property(x => x.UpdatedUserName).HasColumnType("varchar(50)");

@@ -3,20 +3,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SiteManagementApi.Entities.Entities
 {
-    public class PersonAddress
+    public class Address
     {
         public int Id { get; set; }
         public Guid? AddressId { get; set; }
         // Ülke kodu
-        public string CountryCode { get; set; }
+        public string? CountryCode { get; set; }
         // Şehir kodu
-        public string CityCode { get; set; }
+        public string? CityCode { get; set; }
         // İlçe kodu
-        public string DistrictCode { get; set; }
+        public string? DistrictCode { get; set; }
         // Mahalle
-        public string Quarter { get; set; }
+        public string? Quarter { get; set; }
         // Açık adres
-        public string Address { get; set; }
+        public string? OpenAddress { get; set; }
         // Aktif mi?
         public bool? IsActive { get; set; }
         // Oluşturan kullanıcı adı
@@ -28,9 +28,9 @@ namespace SiteManagementApi.Entities.Entities
         // Son güncelleme tarihi
         public DateTime? UpdatedDate { get; set; }
     }
-    public class PersonAddressEntityConfiguration : IEntityTypeConfiguration<PersonAddress>
+    public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
     {
-        public void Configure(EntityTypeBuilder<PersonAddress> builder)
+        public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.AddressId).HasColumnType("uniqueidentifier");
@@ -38,7 +38,7 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.CityCode).HasColumnType("varchar(10)");
             builder.Property(x => x.DistrictCode).HasColumnType("varchar(10)");
             builder.Property(x => x.Quarter).HasColumnType("varchar(30)");
-            builder.Property(x => x.Address).HasColumnType("varchar(100)");
+            builder.Property(x => x.OpenAddress).HasColumnType("varchar(100)");
             builder.Property(x => x.CreatedUserName).HasColumnType("varchar(50)");
             builder.Property(x => x.CreatedDate).HasColumnType("datetime");
             builder.Property(x => x.UpdatedUserName).HasColumnType("varchar(50)");

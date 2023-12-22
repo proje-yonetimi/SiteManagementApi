@@ -11,7 +11,7 @@ namespace SiteManagementApi.Entities.Entities.Site
         // Site adı
         public string? Name { get; set; }
         // Yönetici id. person tablosunda yönetici tipindeki eleman ile eşleşir.
-        public int ManagerId { get; set; }
+        public int? ManagerId { get; set; }
         // Site adresi
         public Guid? AddressId { get; set; }
         // Aktif mi?
