@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SiteManagementApi.Data.Context;
 
@@ -11,9 +12,11 @@ using SiteManagementApi.Data.Context;
 namespace SiteManagementApi.Data.Migrations.Dashboard
 {
     [DbContext(typeof(DashboardContext))]
-    partial class DashboardContextModelSnapshot : ModelSnapshot
+    [Migration("20231219111753_DashboardMigrationv6")]
+    partial class DashboardMigrationv6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,53 +69,6 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.HasKey("Id");
 
                     b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Core.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CityCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CityName")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("IsActive")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Core.District", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CityCode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DistrictCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DistrictName")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int>("IsActive")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Districts");
                 });
 
             modelBuilder.Entity("SiteManagementApi.Entities.Entities.Core.LogError", b =>
@@ -287,7 +243,7 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
 
             modelBuilder.Entity("SiteManagementApi.Entities.Entities.PersonCommunication", b =>
                 {
-                    b.Property<Guid?>("Id")
+                    b.Property<Guid?>("PersonCommunicationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -318,7 +274,7 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<string>("UpdatedUserName")
                         .HasColumnType("varchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("PersonCommunicationId");
 
                     b.ToTable("PersonCommunications");
                 });
@@ -715,7 +671,7 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<string>("Attachment")
                         .HasColumnType("varchar(200)");
 
-                    b.Property<int?>("AttendenceId")
+                    b.Property<int>("AttendenceId")
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
@@ -724,10 +680,10 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<string>("Location")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<DateTime?>("MeetingDate")
+                    b.Property<DateTime>("MeetingDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("Subject")
@@ -738,30 +694,7 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AttendenceId");
-
                     b.ToTable("Meeting");
-                });
-
-            modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.MeetingAttendence", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AttendenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttendenceId");
-
-                    b.ToTable("MeetingAttendences");
                 });
 
             modelBuilder.Entity("SiteManagementApi.Entities.Entities.Site.Site", b =>
@@ -784,7 +717,7 @@ namespace SiteManagementApi.Data.Migrations.Dashboard
                     b.Property<bool?>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("ManagerId")
+                    b.Property<int>("ManagerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

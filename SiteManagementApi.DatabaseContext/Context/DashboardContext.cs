@@ -16,7 +16,7 @@ namespace SiteManagementApi.Data.Context
         public DbSet<Person> Persons { get; set; }
         public DbSet<PersonDetail> PersonDetails { get; set; }
         public DbSet<PersonCommunication> PersonCommunications { get; set; }
-        public DbSet<PersonAddress> PersonAddresses { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<PersonIdentityInformation> PersonIdentityInformations { get; set; }
         public DbSet<PersonVehicle> PersonVehicles { get; set; }
         public DbSet<PersonApartment> PersonApartments { get; set; }
@@ -29,6 +29,9 @@ namespace SiteManagementApi.Data.Context
         public DbSet<WaitingApprovePerson> WaitingApprove { get; set; }
         public DbSet<Parameter> Parameters_Tbl { get; set; }
         public DbSet<LogError> LogErrors { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<MeetingAttendence> MeetingAttendences { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,7 +41,7 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new PersonEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonDetailEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonCommunicationEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new PersonAddressEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AddressEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonIdentityInformationEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonVehicleEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PersonApartmentEntityConfiguration());
@@ -51,6 +54,9 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new WaitingApproveEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ParameterEntityConfiguration());
             modelBuilder.ApplyConfiguration(new LogErrorEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CityEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DistrictEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new MeetingAttendenceEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
