@@ -30,6 +30,8 @@ namespace SiteManagementApi.Entities.Entities.Persons
             builder.Property(x => x.Model).HasColumnType("varchar(30)");
             builder.Property(x => x.Color).HasColumnType("varchar(30)");
             builder.Property(x => x.IsActive).HasColumnType("bit");
+            builder.HasIndex(e => e.Id);
+            builder.HasIndex(e => e.PersonId);
         }
     }
 }

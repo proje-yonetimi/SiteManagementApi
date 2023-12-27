@@ -72,6 +72,8 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(x => x.CreatedDate).HasColumnType("datetime");
             builder.Property(x => x.UpdatedUserName).HasColumnType("varchar(50)");
             builder.Property(x => x.UpdatedDate).HasColumnType("datetime");
+            builder.HasIndex(x => x.SiteId);
+            builder.HasIndex(x => x.ApartmentId);
 
         }
     }

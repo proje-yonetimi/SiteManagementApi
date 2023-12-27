@@ -21,6 +21,7 @@ namespace SiteManagementApi.Entities.Entities.Persons
             builder.Property(x=>x.Status).HasColumnType("int");
             builder.Property(x=>x.CreatedUserName).HasColumnType("varchar(30)");
             builder.Property(x => x.CreatedDate).HasColumnType("datetime");
+            builder.HasIndex(e => e.PersonId);
         }
     }
 }

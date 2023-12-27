@@ -38,7 +38,7 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(x => x.PushAlert).HasColumnType("bit");
             builder.Property(x => x.Description).HasColumnType("varchar(1000)");
             builder.Property(x => x.Status).HasColumnType("int");
-
+            builder.HasIndex(e => e.EmployeeId);
 
         }
     }
