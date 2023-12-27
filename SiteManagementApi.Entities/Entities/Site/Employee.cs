@@ -27,6 +27,8 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(e => e.Position).HasColumnType("varchar(30)");
             builder.Property(e => e.MealCard).HasColumnType("varchar(30)");
             builder.Property(e => e.Description).HasColumnType("varchar(2000)");
+            builder.HasIndex(e => e.EmployeeId);
+            builder.HasIndex(e => e.PersonId);
 
         }
     }

@@ -37,6 +37,8 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(e => e.Attachment).HasColumnType("varchar(200)");
             builder.Property(e => e.AttendenceId).HasColumnType("int");
             builder.HasIndex(e => e.AttendenceId);
+            builder.HasIndex(e => e.Status);
+            builder.HasIndex(e => e.MeetingDate);
         }
     }
 }

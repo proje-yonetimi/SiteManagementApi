@@ -1,19 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SiteManagementApi.Entities.Entities.Site
+namespace SiteManagementApi.Entities.Entities.Definitions
 {
-    public class Site
+    public class GeneralAccount
     {
         public int Id { get; set; }
-        // Site id. uniqueidentifier olacak
-        public Guid? SiteId { get; set; }
-        // Site adı
-        public string? Name { get; set; }
-        // Yönetici id. person tablosunda yönetici tipindeki eleman ile eşleşir.
-        public int? ManagerId { get; set; }
-        // Site adresi
-        public Guid? AddressId { get; set; }
+        public int? AccountCode { get; set; }
+        public string? Account { get; set; }
         // Aktif mi?
         public bool? IsActive { get; set; }
         // Oluşturan kullanıcı adı
@@ -24,25 +18,22 @@ namespace SiteManagementApi.Entities.Entities.Site
         public string? UpdatedUserName { get; set; }
         // Son güncelleme tarihi
         public DateTime? UpdatedDate { get; set; }
+
     }
-    public class SiteEntityConfiguration : IEntityTypeConfiguration<Site>
+    public class GeneralAccountEntityConfiguration : IEntityTypeConfiguration<GeneralAccount>
     {
-        public void Configure(EntityTypeBuilder<Site> builder)
+        public void Configure(EntityTypeBuilder<GeneralAccount> builder)
         {
+            builder.HasIndex(x => x.Id);
+            builder.HasIndex(x => x.AccountCode);
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.SiteId).HasColumnType("uniqueidentifier");
-            builder.Property(x=>x.Name).HasColumnType("varchar(100)");
-            builder.Property(x => x.ManagerId).HasColumnType("int");
-            builder.Property(x => x.AddressId).HasColumnType("uniqueidentifier");
+            builder.Property(x => x.AccountCode).HasColumnType("int");
+            builder.Property(x => x.Account).HasColumnType("varchar(50)");
             builder.Property(x => x.IsActive).HasColumnType("bit");
             builder.Property(x => x.CreatedUserName).HasColumnType("varchar(50)");
             builder.Property(x => x.CreatedDate).HasColumnType("datetime");
             builder.Property(x => x.UpdatedUserName).HasColumnType("varchar(50)");
             builder.Property(x => x.UpdatedDate).HasColumnType("datetime");
-            builder.HasIndex(e => e.SiteId);
-            builder.HasIndex(e => e.ManagerId);
-            builder.HasIndex(e => e.AddressId);
-
         }
     }
 }

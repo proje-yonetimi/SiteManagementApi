@@ -39,6 +39,8 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.MartyrVeteranRelative).HasColumnType("bit");
             builder.Property(x => x.PetType).HasColumnType("int");
             builder.Property(x => x.Description).HasColumnType("varchar(2000)");
+            builder.HasIndex(e => e.Id);
+            builder.HasIndex(e => e.PersonId);
         }
     }
 }

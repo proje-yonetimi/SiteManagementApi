@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.Entities.Entities;
 using SiteManagementApi.Entities.Entities.Core;
+using SiteManagementApi.Entities.Entities.Definitions;
 using SiteManagementApi.Entities.Entities.Menu;
 using SiteManagementApi.Entities.Entities.Persons;
 using SiteManagementApi.Entities.Entities.Site;
@@ -32,6 +33,16 @@ namespace SiteManagementApi.Data.Context
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<MeetingAttendence> MeetingAttendences { get; set; }
+        public DbSet<Strings> Strings_tbl{ get; set; }
+        public DbSet<ApartmentGroup> ApartmentGroups { get; set; }
+        public DbSet<ApartmentType> ApartmentTypes { get; set; }
+        public DbSet<Authorities> Authorities { get; set; }
+        public DbSet<BankCase> BankCases { get; set; }
+        public DbSet<Expense> Expense { get; set; }
+        public DbSet<ExpenseGroup> ExpenseGroup { get; set; }
+        public DbSet<GeneralAccount> GeneralAccounts { get; set; }
+        public DbSet<Income> Incomes { get; set; }
+        public DbSet<IncomeGroup> IncomeGroups { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -57,6 +68,16 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new CityEntityConfiguration());
             modelBuilder.ApplyConfiguration(new DistrictEntityConfiguration());
             modelBuilder.ApplyConfiguration(new MeetingAttendenceEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new StringEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ApartmentGroupEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ApartmentTypeEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthoritiesEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new BankCaseEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ExpenseEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ExpenseGroupEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new GeneralAccountEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new IncomeEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new IncomeGroupEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
