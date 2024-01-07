@@ -20,6 +20,7 @@ namespace SiteManagementApi.Entities.Entities.Site
             builder.Property(x => x.Bank).HasColumnType("varchar(50)");
             builder.Property(x => x.AccountNumber).HasColumnType("varchar(20)");
             builder.Property(x => x.IBAN).HasColumnType("varchar(30)");
+            builder.HasIndex(e => e.EmployeeId);
         }
     }
 }

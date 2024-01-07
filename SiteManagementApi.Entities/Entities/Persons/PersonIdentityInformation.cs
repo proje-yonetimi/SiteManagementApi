@@ -53,6 +53,8 @@ namespace SiteManagementApi.Entities.Entities
             builder.Property(x => x.MaritalStatus).HasColumnType("int");
             builder.Property(x => x.MaritalDate).HasColumnType("datetime");
             builder.Property(x => x.HomeTown).HasColumnType("varchar(30)");
+            builder.HasIndex(e => e.Id);
+            builder.HasIndex(e => e.IdentityInformationId);
         }
     }
 }
