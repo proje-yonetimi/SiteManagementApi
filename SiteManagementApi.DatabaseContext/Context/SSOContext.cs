@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.Entities.Entities;
+using SiteManagementApi.Entities.Entities.User;
 
 namespace SiteManagementApi.DatabaseContext.Context
 {
@@ -9,7 +10,7 @@ namespace SiteManagementApi.DatabaseContext.Context
         public SSOContext(DbContextOptions<SSOContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserEntityConfiguration());
         }

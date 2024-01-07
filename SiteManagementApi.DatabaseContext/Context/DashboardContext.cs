@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SiteManagementApi.Entities.Entities;
 using SiteManagementApi.Entities.Entities.Core;
+using SiteManagementApi.Entities.Entities.General;
 using SiteManagementApi.Entities.Entities.Menu;
 using SiteManagementApi.Entities.Entities.Persons;
 using SiteManagementApi.Entities.Entities.Site;
@@ -32,6 +33,12 @@ namespace SiteManagementApi.Data.Context
         public DbSet<City> Cities { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<MeetingAttendence> MeetingAttendences { get; set; }
+
+        public DbSet<SiteGeneralInfo> siteGeneralInfos { get; set; }
+        public DbSet<PersonGeneralInfo> personGeneralInfos { get; set; }
+
+
+        public IForaDb db { get; set; } 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

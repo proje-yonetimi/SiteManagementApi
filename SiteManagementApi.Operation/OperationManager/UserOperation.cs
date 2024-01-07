@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SiteManagementApi.Business.Interfaces;
 using SiteManagementApi.DatabaseContext.Context;
-using SiteManagementApi.Entities.Entities;
+using SiteManagementApi.Entities.Entities.User;
 
-namespace SiteManagementApi.Operation.Classes
+namespace SiteManagementApi.Operation.OperationManager
 {
-    public class UserInfo
+    public class UserOperation : IUser
     {
         public static List<User> GetUserInfo(int? userId = 0)
         {
@@ -33,6 +34,17 @@ namespace SiteManagementApi.Operation.Classes
             }
 
             return sonUser;
+        }
+
+        public List<User> GetUserAll()
+        {
+            List<User> user = new List<User>();
+            return user;
+        }
+
+        public List<User> GetUserInfo(int userId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.Text;
 
-namespace SiteManagementApi.Operation.Classes
+namespace SiteManagementApi.Operation.OperationManager
 {
     public class SpCall : ISpCall
     {
@@ -370,7 +370,7 @@ namespace SiteManagementApi.Operation.Classes
         public void SetUSerDefinedTable(string name, DataTable dt, string typeName)
         {
             SetParameter(name, SqlDbType.Structured, ParameterDirection.Input, dt, typeName);
-            if (dt!=null && dt.Rows.Count>0)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 Parameters[name].Size = dt.Rows.Count;
             }
@@ -549,7 +549,8 @@ namespace SiteManagementApi.Operation.Classes
                 }
                 else
                 {
-                    switch (item.SqlDbType) {
+                    switch (item.SqlDbType)
+                    {
                         case SqlDbType.Char:
                         case SqlDbType.NChar:
                         case SqlDbType.NText:
@@ -577,7 +578,8 @@ namespace SiteManagementApi.Operation.Classes
                                     string userDefinedTableParamsText = "\n DECLARE "
                                         + item.ParameterName + " " + item.TypeName + " ";
                                     DataTable dtStructured = (DataTable)item.Value;
-                                    foreach (var dr in dtStructured.Rows) {
+                                    foreach (var dr in dtStructured.Rows)
+                                    {
                                         string parColStr = "";
                                         foreach (var parCol in ((DataRow)dr).ItemArray)
                                         {
