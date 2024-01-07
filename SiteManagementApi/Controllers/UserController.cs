@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SiteManagementApi.Entities.Entities;
-using SiteManagementApi.Operation.Classes;
+using SiteManagementApi.Entities.Entities.User;
+using SiteManagementApi.Operation.OperationManager;
 
 namespace SiteManagementApi.Controllers
 {
@@ -10,12 +10,12 @@ namespace SiteManagementApi.Controllers
         [HttpGet("GetUserInfo")]
         public List<User> Get()
         {
-            return UserInfo.GetUserInfo();
+            return UserOperation.GetUserInfo();
         }
         [HttpGet("GetUserInfoById")]
         public List<User> Get(int userId)
         {
-            return UserInfo.GetUserInfo(userId);
+            return UserOperation.GetUserInfo(userId);
         }
     }
 }

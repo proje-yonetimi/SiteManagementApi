@@ -3,8 +3,8 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using SiteManagementApi.DatabaseContext.Context;
-using SiteManagementApi.Entities.Entities;
-using SiteManagementApi.Operation.Classes;
+using SiteManagementApi.Entities.Entities.User;
+using SiteManagementApi.Operation.OperationManager;
 
 namespace SiteManagementApi.Controllers
 {
@@ -15,7 +15,7 @@ namespace SiteManagementApi.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public List<User> Get()
         {
-            var userInfo = UserInfo.GetUserInfo();
+            var userInfo = UserOperation.GetUserInfo(2);
             
             return userInfo;
         }

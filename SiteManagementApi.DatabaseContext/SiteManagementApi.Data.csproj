@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SiteManagementApi.Business\SiteManagementApi.Business.csproj" />
     <ProjectReference Include="..\SiteManagementApi.Entities\SiteManagementApi.Entities.csproj" />
   </ItemGroup>
 

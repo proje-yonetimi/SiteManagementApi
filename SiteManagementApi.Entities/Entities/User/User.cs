@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SiteManagementApi.Entities.Entities
+namespace SiteManagementApi.Entities.Entities.User
 {
     public class User
     {
