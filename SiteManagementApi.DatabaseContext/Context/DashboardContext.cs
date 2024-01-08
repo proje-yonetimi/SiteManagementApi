@@ -2,7 +2,7 @@
 using SiteManagementApi.Entities.Entities;
 using SiteManagementApi.Entities.Entities.Core;
 using SiteManagementApi.Entities.Entities.General;
-using SiteManagementApi.Entities.Entities.Definitions;
+using SiteManagementApi.Entities.Entities.Definition;
 using SiteManagementApi.Entities.Entities.Menu;
 using SiteManagementApi.Entities.Entities.Persons;
 using SiteManagementApi.Entities.Entities.Site;
@@ -44,9 +44,7 @@ namespace SiteManagementApi.Data.Context
         public DbSet<GeneralAccount> GeneralAccounts { get; set; }
         public DbSet<Income> Incomes { get; set; }
         public DbSet<IncomeGroup> IncomeGroups { get; set; }
-
-        public DbSet<SiteGeneralInfo> siteGeneralInfos { get; set; }
-        public DbSet<PersonGeneralInfo> personGeneralInfos { get; set; }
+        public DbSet<Company> Companys { get; set; }
 
 
         public IForaDb db { get; set; } 
@@ -85,6 +83,7 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new GeneralAccountEntityConfiguration());
             modelBuilder.ApplyConfiguration(new IncomeEntityConfiguration());
             modelBuilder.ApplyConfiguration(new IncomeGroupEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CompanyEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
