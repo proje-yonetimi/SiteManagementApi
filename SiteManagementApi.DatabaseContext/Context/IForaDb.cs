@@ -6,5 +6,6 @@ namespace SiteManagementApi.Data.Context
     public interface IForaDb : IDisposable, IDataRecord, IDataReader
     {
         IDataReader ExecuteReader(ISpCall sp);
+        int ExecutenonQuert(ISpCall sp);
     }
 }
