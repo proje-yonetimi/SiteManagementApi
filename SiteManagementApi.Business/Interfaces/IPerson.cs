@@ -17,7 +17,8 @@ namespace SiteManagementApi.Business.Interfaces
 
         List<Person> GetPersonsListAll();                                                                   // Person bilgilerini getirir.
         Person GetByPersonId(int personId);                                                                 // PersonId ile bağlantılı Person bilgisini getirir. xx
-        string PersonSave(Person person);
+        int PersonSave(Person person);
+        int GeneralPersonSave(PersonGeneralInfo personGeneral);
         string PersonUpdate(Person person);
         string PersonDelete(int PersonId);
 
@@ -29,7 +30,7 @@ namespace SiteManagementApi.Business.Interfaces
         string PersonApartmentDelete(int personId);
 
         List<PersonCommunication> GetPersonCommunicationsAll();                                             // Tüm kişi bilgileri listesi
-        PersonCommunication GetByPersonCommunication(int personId);                                         // PersonId ile kişi bilgilerini getirir.  xx
+        PersonCommunication GetByPersonCommunication(Guid personCommId);                                         // PersonId ile kişi bilgilerini getirir.  xx
         string PersonCommunicationSave(PersonCommunication personCommunication);
         string PersonCommunicationUpdate(PersonCommunication personCommunication);
         string PersonCommunicationDelete(int personId);
@@ -42,7 +43,7 @@ namespace SiteManagementApi.Business.Interfaces
 
 
         List<PersonIdentityInformation> GetPersonIdentityInformationAll();                                  // Tüm Kişi kimlik bilgilerini getirir.
-        PersonIdentityInformation GetByPersonIdentityInformation(int personId);                             // PersonId ile Kişi kimlik bilgilerini getirir. xx
+        PersonIdentityInformation GetByPersonIdentityInformation(Guid personIdentId);                             // PersonId ile Kişi kimlik bilgilerini getirir. xx
         string PersonIdentityInformationSave(PersonIdentityInformation personIdentityInformation);
         string PersonIdentityInformationUpdate(PersonIdentityInformation personIdentityInformation);
         string PersonIdentityInformationDelete(int personId);
