@@ -12,6 +12,7 @@ namespace SiteManagementApi.Data.Context
     public class DashboardContext: DbContext
     {
         public DashboardContext() { }
+
         public DashboardContext(DbContextOptions<DashboardContext> options): base(options) { }
         public DbSet<MenuItem> MenuItem { get; set; }
         public DbSet<MenuItemHierarchy> MenuItemHierarchy { get; set; }
@@ -45,9 +46,7 @@ namespace SiteManagementApi.Data.Context
         public DbSet<Income> Incomes { get; set; }
         public DbSet<IncomeGroup> IncomeGroups { get; set; }
         public DbSet<Company> Companys { get; set; }
-
-
-        public IForaDb db { get; set; } 
+        public DbSet<Document> Documents { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -84,6 +83,7 @@ namespace SiteManagementApi.Data.Context
             modelBuilder.ApplyConfiguration(new IncomeEntityConfiguration());
             modelBuilder.ApplyConfiguration(new IncomeGroupEntityConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new DocumentEntityConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
