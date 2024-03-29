@@ -1,4 +1,7 @@
-﻿namespace SiteManagementApi.Entities.Entities.Finance.DebitCollection
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace SiteManagementApi.Entities.Entities.Finance.DebitCollection
 {
     public class DebtReceipt
     {
@@ -29,5 +32,27 @@
         // Son güncelleme tarihi
         public DateTime? UpdatedDate { get; set; }
     }
-    public class Deb
+    public class DebtReceiptEntityConfiguration : IEntityTypeConfiguration<DebtReceipt>
+    {
+        public void Configure(EntityTypeBuilder<DebtReceipt> builder)
+        {
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.DebtorId).HasColumnType("int");
+            builder.Property(x => x.ApartmentId).HasColumnType("uniqueidentifier");
+            builder.Property(x => x.CategoryId).HasColumnType("varchar(30)");
+            builder.Property(x => x.DebtDate).HasColumnType("datetime");
+            builder.Property(x => x.PaymentDueDate).HasColumnType("datetime");
+            builder.Property(x => x.DebtRow).HasColumnType("uniqueidentifier");
+            builder.Property(x => x.ReceiptType).HasColumnType("int");
+            builder.Property(x => x.DebtDescription).HasColumnType("varchar(250)");
+            builder.Property(x => x.IsActive).HasColumnType("bit");
+            builder.Property(x => x.CreatedUserName).HasColumnType("varchar(50)");
+            builder.Property(x => x.CreatedDate).HasColumnType("datetime");
+            builder.Property(x => x.UpdatedUserName).HasColumnType("varchar(50)");
+            builder.Property(x => x.UpdatedDate).HasColumnType("datetime");
+            builder.HasKey(x => x.DebtorId);
+            builder.HasKey(x => x.CreatedDate);
+
+        }
+    }
 }
